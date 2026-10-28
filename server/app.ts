@@ -1,4 +1,5 @@
 import express, { type NextFunction, type Request, type Response } from 'express';
+import compression from 'compression';
 import helmet from 'helmet';
 import rateLimit from 'express-rate-limit';
 import path from 'node:path';
@@ -15,6 +16,7 @@ export function createApp(config: ServerConfig, mailer: Mailer | null, options: 
   const app = express();
   app.disable('x-powered-by');
   if (config.trustProxy) app.set('trust proxy', config.trustProxy);
+  app.use(compression());
 
   app.use(
     helmet({
@@ -110,7 +112,16 @@ export function createApp(config: ServerConfig, mailer: Mailer | null, options: 
   if (options.staticDir && fs.existsSync(options.staticDir)) {
     const dir = options.staticDir;
     app.use('/assets', express.static(path.join(dir, 'assets'), { immutable: true, maxAge: '1y', index: false }));
-    app.use(express.static(dir, { extensions: ['html'], maxAge: '1h' }));
+    app.use(
+      express.static(dir, {
+        extensions: ['html'],
+        maxAge: '1d',
+        // HTML must revalidate so visitors never get a page pointing at outdated asset hashes.
+        setHeaders: (res, filePath) => {
+          if (filePath.endsWith('.html')) res.setHeader('Cache-Control', 'no-cache');
+        },
+      }),
+    );
     app.use((_req, res) => {
       res.status(404).sendFile(path.join(dir, '404.html'));
     });

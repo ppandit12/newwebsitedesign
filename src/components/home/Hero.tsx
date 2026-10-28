@@ -109,17 +109,17 @@ export function Hero() {
           {/* Services tag */}
           <div className="absolute top-8 -left-3 hidden rounded-2xl bg-white/95 px-5 py-4 shadow-card backdrop-blur sm:block lg:-left-12">
             <div className="flex items-end gap-1.5" aria-hidden="true">
-              {[10, 16, 22, 30].map((h, i) => (
+              {[12, 20, 28, 36].map((h, i) => (
                 <span
                   key={h}
-                  className={i === 3 ? 'w-2.5 rounded-sm bg-gold-500' : 'w-2.5 rounded-sm bg-navy-900'}
+                  className={i === 3 ? 'w-2 rounded-[2px] bg-gold-500' : 'w-2 rounded-[2px] bg-navy-900'}
                   style={{ height: h }}
                 />
               ))}
             </div>
             <p className="mt-3 font-display text-sm font-bold text-navy-900">Tax · Accounting · Advisory</p>
           </div>
-          <Bars className="absolute -right-2 -bottom-3 h-10 w-12 opacity-90 sm:-right-4" tone="gold" />
+          <Bars className="absolute -right-4 -bottom-3 hidden h-10 w-12 opacity-90 sm:block" tone="gold" />
         </div>
       </div>
     </section>

@@ -16,6 +16,8 @@ export interface PriceItem {
   unit?: string;
   /** Optional second price option, e.g. hourly rate. */
   alternative?: string;
+  /** Service to preselect in the form when it differs from the category's. */
+  interest?: ServiceInterest;
 }
 
 export interface PricingCategory {
@@ -132,6 +134,7 @@ export const pricing: PricingCategory[] = [
       },
       {
         name: 'CFO & Controller Services',
+        interest: 'cfo-controller',
         description:
           'Cash flow oversight, budgets and forecasts, KPI dashboards, board-ready reporting, and strategic guidance.',
         qualifier: 'From',
@@ -141,6 +144,7 @@ export const pricing: PricingCategory[] = [
       },
       {
         name: 'Consulting Calls',
+        interest: 'business-consulting',
         description: 'One-on-one time with a CPA for specific questions and decisions.',
         amount: '$200',
         unit: '/hour',

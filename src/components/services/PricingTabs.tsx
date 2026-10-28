@@ -19,7 +19,11 @@ function PriceCard({ item, category }: { item: PriceItem; category: PricingCateg
         {item.alternative && <p className="mt-1.5 text-sm font-semibold text-gold-700">{item.alternative}</p>}
       </div>
       <Link
-        to={consultationHref({ service: category.interest, pkg: item.name, from: `pricing:${category.id}` })}
+        to={consultationHref({
+          service: item.interest ?? category.interest,
+          pkg: item.name,
+          from: `pricing:${category.id}`,
+        })}
         className="mt-6 inline-flex h-11 items-center justify-center gap-2 rounded-full border border-navy-900/15 font-display text-[0.9375rem] font-semibold text-navy-900 transition-colors group-hover:border-navy-900 group-hover:bg-navy-900 group-hover:text-white"
       >
         Book Consultation

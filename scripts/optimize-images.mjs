@@ -59,7 +59,8 @@ for (const [name, color] of [
   ['navy', NAVY],
   ['white', '#FFFFFF'],
 ]) {
-  const buf = await horizontal(color);
+  // Displayed at 32–36px tall; 96px covers 2–3x screens.
+  const buf = await sharp(await horizontal(color)).resize({ height: 96 }).toBuffer();
   await sharp(buf).png({ compressionLevel: 9 }).toFile(`${OUT}/numberx-logo-${name}.png`);
   await sharp(buf).webp({ quality: 92 }).toFile(`${OUT}/numberx-logo-${name}.webp`);
 }

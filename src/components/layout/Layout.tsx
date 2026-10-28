@@ -60,7 +60,7 @@ function MobileCtaBar() {
           to={consultationHref({ from: 'mobile-bar' })}
           className="inline-flex h-12 items-center justify-center gap-2 rounded-full bg-navy-900 font-display font-semibold text-white"
         >
-          <CalendarCheck className="h-4 w-4" aria-hidden="true" /> Book Free Consultation
+          <CalendarCheck className="h-4 w-4" aria-hidden="true" /> Free Consultation
         </Link>
       </div>
     </div>

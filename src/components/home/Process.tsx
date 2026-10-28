@@ -33,7 +33,7 @@ export function Process() {
         />
         <div className="relative mt-16">
           <div
-            className="absolute top-6 right-[12%] left-[12%] hidden h-px bg-navy-900/15 lg:block"
+            className="absolute top-6 right-[calc(25%-3rem)] left-6 hidden h-px bg-navy-900/15 lg:block"
             aria-hidden="true"
           />
           <ol className="relative grid gap-10 md:grid-cols-2 lg:grid-cols-4 lg:gap-8">
