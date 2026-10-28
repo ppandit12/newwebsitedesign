@@ -1,0 +1,11 @@
+{
+  "name": "NumberX Financial Services",
+  "short_name": "NumberX",
+  "icons": [
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ],
+  "theme_color": "#0B1F3A",
+  "background_color": "#FFFFFF",
+  "display": "browser"
+}

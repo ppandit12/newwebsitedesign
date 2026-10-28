@@ -1,0 +1,7 @@
+dist
+dist-ssr
+dist-server
+node_modules
+public
+assets-src
+*.md
